@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_main_headsets"
+        app:showAsAction="ifRoom"
+        android:title="Headsets"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/menu_main_bookmarks"
+        app:showAsAction="ifRoom"
+        android:title="Bookmarks"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/menu_main_share"
+        android:icon="@drawable/ic_share_black_24dp"
+        app:showAsAction="ifRoom"
+        android:title="Share" />
+</menu>

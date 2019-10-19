@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="#000">
+
+    <ImageView
+        android:id="@+id/iv_category_image"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_category_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ha$k tOoL" />
+
+    <ImageView
+        android:id="@+id/iv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_more_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_category_image"
+        tools:text="Rio Hosts Largest Hacker Marathon in Latin America" />
+
+    <TextView
+        android:id="@+id/tv_short_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="6dp"
+        android:maxLines="3"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="RIO DE JANEIRO, BRAZIL - Regarded as the largest hacker marathon in Latin America, it gathers until Sunday approximately 1.5 thousand participants, divided into 15 collective hackathons with specific topics." />
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/tv_short_description" />
+
+    <ImageView
+        android:id="@+id/iv_comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        android:visibility="invisible"  />
+
+    <TextView
+        android:id="@+id/tv_comments_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/iv_comments"
+        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        tools:text="9"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/iv_bookmarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@id/tv_comments_count"
+        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tv_bookmarks_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/iv_bookmarks"
+        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        tools:text="20"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/iv_arrow_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_likes_count"
+        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tv_likes_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="#4CAF50"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/iv_arrow_up"
+        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        tools:text="15"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/iv_arrow_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        android:visibility="invisible"/>
+
+
+    <TextView
+        android:textColor="#fff"
+        android:id="@+id/tv_date_published"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        tools:text="time" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_arrow_up" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

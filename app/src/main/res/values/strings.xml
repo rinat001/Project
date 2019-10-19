@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Project First Part</string>
+
+    <string name="count_placeholder">000</string>
+    <string name="main_title">News</string>
+    <string name="details_title">About</string>
+</resources>
