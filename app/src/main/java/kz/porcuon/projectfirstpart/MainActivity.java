@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements OnClick {
 
     public void onShareClicked(int id) {
         Intent intent = new Intent(Intent.ACTION_SEND);
-        String message = "https://myapp.kz/" + id;
+        String message = "smth";
         intent.putExtra(Intent.EXTRA_TEXT, message);
         intent.setType("text/plain");
         startActivity(intent);

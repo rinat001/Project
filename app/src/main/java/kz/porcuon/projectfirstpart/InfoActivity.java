@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -74,11 +75,12 @@ public class InfoActivity extends AppCompatActivity {
         news = NewsData.getInstance().getNewsById(id);
         prepareUI();
 
-        mEditText = findViewById(R.id.edit_text);
 
-        mEditText.requestFocus();
+        mEditText = findViewById(R.id.edit_text);
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
+        imm.hideSoftInputFromWindow(mEditText.getWindowToken(), 0);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
 
@@ -131,13 +133,7 @@ public class InfoActivity extends AppCompatActivity {
                 .into(ivImage);
     }
 
-    private void shareUrl() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        String message = FILE_NAME;
-        intent.putExtra(Intent.EXTRA_TEXT, message);
-        intent.setType("text/plain");
-        startActivity(intent);
-    }
+
 
     public static void open(Context context, int id) {
         Intent intent = new Intent(context, InfoActivity.class);
@@ -186,6 +182,41 @@ public class InfoActivity extends AppCompatActivity {
             }
 
             mEditText.setText(sb.toString());
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    private void shareUrl() {
+        FileInputStream fis = null;
+        Intent intent = new Intent(Intent.ACTION_SEND);
+
+        try {
+            fis = openFileInput(FILE_NAME);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String text;
+
+            while ((text = br.readLine()) != null) {
+                sb.append(text).append("\n");
+            }
+            intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
+            intent.setType("text/plain");
+            startActivity(intent);
+
+            Intent shareIntent = Intent.createChooser(intent, null);
+            startActivity(shareIntent);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
